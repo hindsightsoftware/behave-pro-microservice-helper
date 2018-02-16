@@ -15,6 +15,7 @@ const hooks = {
       },
       function (traceId, data) {
         // Another empty webhook
+        return Promise.resolve()
       }
     ]
   }
@@ -24,8 +25,8 @@ module.exports.trigger = function (traceId, name, data) {
   if (!(name in hooks)) {
     console.error(`ERROR Trace-ID: ${traceId} WebHook: ${name} does not exist!`)
   } else {
-    const actions = hooks[name]
-    actions.map(action => {
+    const found = hooks[name]
+    found.actions.map(action => {
       action(traceId, data).catch(err => {
         console.error(`ERROR Trace-ID: ${traceId} WebHook: ${name} Message: ${err.message}`)
       })
