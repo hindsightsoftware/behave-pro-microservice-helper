@@ -32,7 +32,7 @@ const hooks = {
   },
   'update-name': {
     actions: [
-      function(tradeId, query, data) {
+      function(traceId, query, data) {
         const params = encodeQueryData(query)
         return http.put({
           url: `${routes.INTERNAL_NAME_CACHE}?${params}`,
