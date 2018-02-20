@@ -15,5 +15,6 @@ module.exports = {
   INTERNAL_PROJECT_SETTINGS: `${serviceProjectSettingsUrl}/REST/1.0/project/settings`,
   INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}/REST/1.0/tags`,
   INTERNAL_TAG_CACHE_ALL: `${serviceTagCacheUrl}/REST/1.0/tags/all`,
-  INTERNAL_NAME_CACHE_ALL: `${serviceNameCacheUrl}/REST/1.0/query/all`
+  INTERNAL_NAME_CACHE_ALL: `${serviceNameCacheUrl}/REST/1.0/query/all`,
+  INTERNAL_NAME_CACHE: `${serviceNameCacheUrl}/REST/1.0/query`
 }

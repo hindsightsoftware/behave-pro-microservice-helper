@@ -29,6 +29,20 @@ const hooks = {
         return Promise.resolve()
       }
     ]
+  },
+  'update-name': {
+    actions: [
+      function(tradeId, query, data) {
+        const params = encodeQueryData(query)
+        return http.put({
+          url: `${routes.INTERNAL_NAME_CACHE}?${params}`,
+          json: data,
+          headers: {
+            'x-behave-trace-id': traceId
+          }
+        })
+      }
+    ]
   }
 }
 
@@ -47,4 +61,8 @@ module.exports.trigger = function (traceId, name, query, data) {
 
 module.exports.updateTags = function (traceId, query, data) {
   module.exports.trigger(traceId, 'update-tags', query, data)
+}
+
+module.exports.updateNames = function (traceId, query, data) {
+  module.exports.trigger(traceId, 'update-name', query, data)
 }
