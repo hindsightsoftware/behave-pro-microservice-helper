@@ -4,6 +4,8 @@ var serviceFeaturesUrl = `http://localhost:3003`
 var serviceTagCacheUrl = `http://localhost:3004`
 var serviceNameCacheUrl = `http://localhost:3005`
 
+console.log('process.env', process.env)
+
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
 // services will share 172.20.0.1 and not 127.0.0.1.
@@ -19,6 +21,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceTagCacheUrl = 'tag-cache.behave.pro'
   serviceNameCacheUrl = 'name-cache.behave.pro'
 }
+
+console.log('serviceGitHubUrl', serviceGitHubUrl)
 
 module.exports = {
   INTERNAL_GITHUB_CONTENTS: `${serviceGitHubUrl}/REST/1.0/contents`,
