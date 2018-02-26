@@ -2,7 +2,7 @@ var serviceGitHubUrl = `http://localhost:3001`
 var serviceProjectSettingsUrl = `http://localhost:3002`
 var serviceFeaturesUrl = `http://localhost:3003`
 var serviceTagCacheUrl = `http://localhost:3004`
-var serviceNameCacheUrl = `http://localhost:3002`
+var serviceNameCacheUrl = `http://localhost:3005`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
