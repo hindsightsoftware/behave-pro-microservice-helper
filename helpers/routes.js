@@ -29,6 +29,7 @@ module.exports = {
   INTERNAL_GITHUB_VALIDATE_PATH: `${serviceGitHubUrl}/REST/1.0/installation/validate`,
   INTERNAL_PROJECT_SETTINGS_HEALTHCHECK: `${serviceProjectSettingsUrl}/REST/1.0/healthcheck`,
   INTERNAL_PROJECT_SETTINGS: `${serviceProjectSettingsUrl}/REST/1.0/project/settings`,
+  INTERNAL_PROJECT_SETTINGS_DELETE_BY_INSTALLATION: `${serviceProjectSettingsUrl}/REST/1.0/project/settings/installation`,
   INTERNAL_FEATURES_HEALTHCHECK: `${serviceFeaturesUrl}/REST/1.0/healthcheck`,
   INTERNAL_FEATURES_FEATURE: `${serviceFeaturesUrl}/REST/1.0/feature`,
   INTERNAL_FEATURES_FEATURE_ALL: `${serviceFeaturesUrl}/REST/1.0/feature/all`,
