@@ -16,10 +16,12 @@ if (process.env.INTERNAL_TAG_CACHE_URL) serviceTagCacheUrl = process.env.INTERNA
 if (process.env.INTERNAL_NAME_CACHE_URL) serviceNameCacheUrl = process.env.INTERNAL_NAME_CACHE_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
-  serviceGitHubUrl = 'github.behave.pro'
-  serviceProjectSettingsUrl = 'project-settings.behave.pro'
-  serviceTagCacheUrl = 'tag-cache.behave.pro'
-  serviceNameCacheUrl = 'name-cache.behave.pro'
+  serviceExternalGitHubUrl = 'github.behave.pro'
+  serviceGitHubUrl = 'github.behave.internal'
+  serviceProjectSettingsUrl = 'project-settings.behave.internal'
+  serviceFeaturesUrl = 'features-manager.behave.internal'
+  serviceTagCacheUrl = 'tag-cache.behave.internal'
+  serviceNameCacheUrl = 'name-cache.behave.internal'
 }
 
 module.exports = {
