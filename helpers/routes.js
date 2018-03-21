@@ -4,6 +4,7 @@ var serviceProjectSettingsUrl = `http://localhost:3002`
 var serviceFeaturesUrl = `http://localhost:3003`
 var serviceTagCacheUrl = `http://localhost:3004`
 var serviceNameCacheUrl = `http://localhost:3005`
+var serviceStepCacheUrl = `http://localhost:3006`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -14,6 +15,7 @@ if (process.env.INTERNAL_PROJECT_SETTINGS_URL) serviceProjectSettingsUrl = proce
 if (process.env.INTERNAL_FEATURES_URL) serviceFeaturesUrl = process.env.INTERNAL_FEATURES_URL
 if (process.env.INTERNAL_TAG_CACHE_URL) serviceTagCacheUrl = process.env.INTERNAL_TAG_CACHE_URL
 if (process.env.INTERNAL_NAME_CACHE_URL) serviceNameCacheUrl = process.env.INTERNAL_NAME_CACHE_URL
+if (process.env.INTERNAL_STEP_CACHE_URL) serviceStepCacheUrl = process.env.INTERNAL_STEP_CACHE_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'github.behave.pro'
@@ -22,6 +24,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceFeaturesUrl = 'features-manager.behave.internal'
   serviceTagCacheUrl = 'tag-cache.behave.internal'
   serviceNameCacheUrl = 'name-cache.behave.internal'
+  serviceStepCacheUrl = 'step-cache.behave.internal'
 }
 
 module.exports = {
@@ -47,5 +50,7 @@ module.exports = {
   INTERNAL_TAG_CACHE_ALL: `${serviceTagCacheUrl}/REST/1.0/tags/all`,
   INTERNAL_NAME_CACHE_ALL: `${serviceNameCacheUrl}/REST/1.0/query/all`,
   INTERNAL_NAME_CACHE_HEALTHCHECK: `${serviceNameCacheUrl}/REST/1.0/healthcheck`,
-  INTERNAL_NAME_CACHE: `${serviceNameCacheUrl}/REST/1.0/query`
+  INTERNAL_NAME_CACHE: `${serviceNameCacheUrl}/REST/1.0/query`,
+  INTERNAL_STEP_CACHE_HEALTHCHECK: `${serviceStepCacheUrl}/REST/1.0/healthcheck`,
+  INTERNAL_STEP_CACHE: `${serviceStepCacheUrl}/REST/1.0/query`
 }
