@@ -32,10 +32,24 @@ const hooks = {
   },
   'update-name': {
     actions: [
-      function(traceId, query, data) {
+      function (traceId, query, data) {
         const params = encodeQueryData(query)
         return http.put({
           url: `${routes.INTERNAL_NAME_CACHE}?${params}`,
+          json: data,
+          headers: {
+            'x-behave-trace-id': traceId
+          }
+        })
+      }
+    ]
+  },
+  'update-steps': {
+    actions: [
+      function (traceId, query, data) {
+        const params = encodeQueryData(query)
+        return http.put({
+          url: `${routes.INTERNAL_STEP_CACHE}?${params}`,
           json: data,
           headers: {
             'x-behave-trace-id': traceId
@@ -65,4 +79,8 @@ module.exports.updateTags = function (traceId, query, data) {
 
 module.exports.updateNames = function (traceId, query, data) {
   module.exports.trigger(traceId, 'update-name', query, data)
+}
+
+module.exports.updateSteps = function (traceId, query, data) {
+  module.exports.trigger(traceId, 'update-steps', query, data)
 }

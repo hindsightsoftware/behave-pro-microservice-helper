@@ -52,5 +52,6 @@ module.exports = {
   INTERNAL_NAME_CACHE_HEALTHCHECK: `${serviceNameCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_NAME_CACHE: `${serviceNameCacheUrl}/REST/1.0/query`,
   INTERNAL_STEP_CACHE_HEALTHCHECK: `${serviceStepCacheUrl}/REST/1.0/healthcheck`,
-  INTERNAL_STEP_CACHE: `${serviceStepCacheUrl}/REST/1.0/query`
+  INTERNAL_STEP_CACHE: `${serviceStepCacheUrl}/REST/1.0/steps`,
+  INTERNAL_STEP_CACHE_PREDICT: `${serviceStepCacheUrl}/REST/1.0/steps/predict`
 }
