@@ -1,86 +1,45 @@
 var routes = require('./routes')
 var http = require('./http')
 
-function encodeQueryData (data) {
-  let ret = []
-  for (let d in data) {
-    if (data[d] !== undefined) {
-      ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]))
-    }
-  }
-  return ret.join('&')
+const WEBHOOKS = {
+  'feature': [
+    routes.INTERNAL_TAG_CACHE_WEBHOOK,
+    routes.INTERNAL_NAME_CACHE_WEBHOOK
+  ],
+  'scenario': [
+    routes.INTERNAL_TAG_CACHE_WEBHOOK,
+    routes.INTERNAL_NAME_CACHE_WEBHOOK,
+    routes.INTERNAL_STEP_CACHE_WEBHOOK
+  ]
 }
 
-const hooks = {
-  'update-tags': {
-    actions: [
-      function (traceId, query, data) {
-        const params = encodeQueryData(query)
-        return http.put({
-          url: `${routes.INTERNAL_TAG_CACHE}?${params}`,
-          json: data,
-          headers: {
-            'x-behave-trace-id': traceId
-          }
-        })
-      },
-      function (traceId, data) {
-        // Another empty webhook
-        return Promise.resolve()
-      }
-    ]
-  },
-  'update-name': {
-    actions: [
-      function (traceId, query, data) {
-        const params = encodeQueryData(query)
-        return http.put({
-          url: `${routes.INTERNAL_NAME_CACHE}?${params}`,
-          json: data,
-          headers: {
-            'x-behave-trace-id': traceId
-          }
-        })
-      }
-    ]
-  },
-  'update-steps': {
-    actions: [
-      function (traceId, query, data) {
-        const params = encodeQueryData(query)
-        return http.put({
-          url: `${routes.INTERNAL_STEP_CACHE}?${params}`,
-          json: data,
-          headers: {
-            'x-behave-trace-id': traceId
-          }
-        })
-      }
-    ]
-  }
-}
-
-module.exports.trigger = function (traceId, name, query, data) {
-  if (!(name in hooks)) {
-    console.error(`ERROR Trace-ID: ${traceId} WebHook: ${name} does not exist!`)
+module.exports.trigger = function (traceId, name, action, data) {
+  if (!(name in WEBHOOKS)) {
+    console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} does not exist!`)
   } else {
-    const found = hooks[name]
-    found.actions.map(action => {
-      action(traceId, query, data).catch(err => {
-        console.error(`ERROR Trace-ID: ${traceId} WebHook: ${name} Message: ${err.message}`)
+    const found = WEBHOOKS[name]
+    found.map(route => {
+      http.post({
+        url: route,
+        json: {
+          name: name,
+          action: action,
+          data: data
+        },
+        headers: {
+          'x-behave-trace-id': traceId
+        }
+      }).catch(err => {
+        console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} Message: ${err.message}`)
       })
     })
   }
 }
 
-module.exports.updateTags = function (traceId, query, data) {
-  module.exports.trigger(traceId, 'update-tags', query, data)
+module.exports.featureEvent = function (traceId, action, data) {
+  module.exports.trigger(traceId, 'feature', action, data)
 }
 
-module.exports.updateNames = function (traceId, query, data) {
-  module.exports.trigger(traceId, 'update-name', query, data)
-}
-
-module.exports.updateSteps = function (traceId, query, data) {
-  module.exports.trigger(traceId, 'update-steps', query, data)
+module.exports.scenarioEvent = function (traceId, action, data) {
+  module.exports.trigger(traceId, 'scenario', action, data)
 }

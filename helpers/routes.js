@@ -48,10 +48,13 @@ module.exports = {
   INTERNAL_TAG_CACHE_HEALTHCHECK: `${serviceTagCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}/REST/1.0/tags`,
   INTERNAL_TAG_CACHE_ALL: `${serviceTagCacheUrl}/REST/1.0/tags/all`,
+  INTERNAL_TAG_CACHE_WEBHOOK: `${serviceTagCacheUrl}/REST/1.0/webhook`,
   INTERNAL_NAME_CACHE_ALL: `${serviceNameCacheUrl}/REST/1.0/query/all`,
   INTERNAL_NAME_CACHE_HEALTHCHECK: `${serviceNameCacheUrl}/REST/1.0/healthcheck`,
+  INTERNAL_NAME_CACHE_WEBHOOK: `${serviceNameCacheUrl}/REST/1.0/webhook`,
   INTERNAL_NAME_CACHE: `${serviceNameCacheUrl}/REST/1.0/query`,
   INTERNAL_STEP_CACHE_HEALTHCHECK: `${serviceStepCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_STEP_CACHE: `${serviceStepCacheUrl}/REST/1.0/steps`,
-  INTERNAL_STEP_CACHE_PREDICT: `${serviceStepCacheUrl}/REST/1.0/steps/predict`
+  INTERNAL_STEP_CACHE_PREDICT: `${serviceStepCacheUrl}/REST/1.0/steps/predict`,
+  INTERNAL_STEP_CACHE_WEBHOOK: `${serviceStepCacheUrl}/REST/1.0/webhook`
 }
