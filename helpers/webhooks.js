@@ -13,14 +13,16 @@ const WEBHOOKS = {
   ]
 }
 
-module.exports.trigger = function (traceId, name, action, data) {
-  if (!(name in WEBHOOKS)) {
+module.exports.trigger = function (traceId, name, action, project, data) {
+  if (project === null || project === undefined) {
+    console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} project is undefined or null!`)
+  } else if (!(name in WEBHOOKS)) {
     console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} does not exist!`)
   } else {
     const found = WEBHOOKS[name]
     found.map(route => {
       http.post({
-        url: route,
+        url: `${route}?project=${project}`,
         json: {
           name: name,
           action: action,
@@ -36,10 +38,10 @@ module.exports.trigger = function (traceId, name, action, data) {
   }
 }
 
-module.exports.featureEvent = function (traceId, action, data) {
-  module.exports.trigger(traceId, 'feature', action, data)
+module.exports.featureEvent = function (traceId, action, project, data) {
+  module.exports.trigger(traceId, 'feature', action, project, data)
 }
 
-module.exports.scenarioEvent = function (traceId, action, data) {
-  module.exports.trigger(traceId, 'scenario', action, data)
+module.exports.scenarioEvent = function (traceId, action, project, data) {
+  module.exports.trigger(traceId, 'scenario', action, project, data)
 }
