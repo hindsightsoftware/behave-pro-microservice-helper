@@ -49,6 +49,7 @@ module.exports = {
   INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}/REST/1.0/tags`,
   INTERNAL_TAG_CACHE_ALL: `${serviceTagCacheUrl}/REST/1.0/tags/all`,
   INTERNAL_TAG_CACHE_WEBHOOK: `${serviceTagCacheUrl}/REST/1.0/webhook`,
+  INTERNAL_TAG_CACHE_PROJECT_TAGS: `${serviceTagCacheUrl}/REST/1.0/project/tags`,
   INTERNAL_NAME_CACHE_ALL: `${serviceNameCacheUrl}/REST/1.0/query/all`,
   INTERNAL_NAME_CACHE_HEALTHCHECK: `${serviceNameCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_NAME_CACHE_WEBHOOK: `${serviceNameCacheUrl}/REST/1.0/webhook`,
