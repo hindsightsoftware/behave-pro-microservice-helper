@@ -6,6 +6,7 @@ var WebHooks = require('./helpers/webhooks')
 var filters = require('./helpers/filters')
 var dialects = require('./helpers/dialects')
 var utils = require('./helpers/utils')
+var mongoCleanup = require('./helpers/mongo-cleanup')
 
 module.exports.http = http
 module.exports.validators = validators
@@ -14,4 +15,5 @@ module.exports.RequestError = RequestError
 module.exports.WebHooks = WebHooks
 module.exports.pick = filters.pick
 module.exports.clone = utils.clone
+module.exports.mongoCleanup = mongoCleanup
 module.exports.GHERKIN_LANG_TO_MONGO_LANG = dialects.GHERKIN_LANG_TO_MONGO_LANG
