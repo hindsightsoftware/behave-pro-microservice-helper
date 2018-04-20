@@ -4,7 +4,8 @@ var http = require('./http')
 const WEBHOOKS = {
   'feature': [
     routes.INTERNAL_TAG_CACHE_WEBHOOK,
-    routes.INTERNAL_NAME_CACHE_WEBHOOK
+    routes.INTERNAL_NAME_CACHE_WEBHOOK,
+    routes.INTERNAL_ISSUE_MANAGER_WEBHOOK
   ],
   'scenario': [
     routes.INTERNAL_TAG_CACHE_WEBHOOK,

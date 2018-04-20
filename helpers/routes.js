@@ -71,5 +71,8 @@ module.exports = {
   INTERNAL_JIRA_GATEWAY_HOST: `${serviceJiraInternalGatewayUrl}/REST/1.0/host`,
   INTERNAL_JIRA_GATEWAY_ISSUE: `${serviceJiraInternalGatewayUrl}/REST/1.0/issue`,
   INTERNAL_ISSUE_MANAGER_HEALTHCHECK: `${serviceIssueManagerUrl}/REST/1.0/healthcheck`,
+  INTERNAL_ISSUE_MANAGER_ISSUE: `${serviceIssueManagerUrl}/REST/1.0/issue`,
+  INTERNAL_ISSUE_MANAGER_SCENARIO: `${serviceIssueManagerUrl}/REST/1.0/issue/scenario`,
+  INTERNAL_ISSUE_MANAGER_SCENARIO_ALL: `${serviceIssueManagerUrl}/REST/1.0/issue/scenario/all`,
   INTERNAL_ISSUE_MANAGER_WEBHOOK: `${serviceIssueManagerUrl}/REST/1.0/webhook`
 }
