@@ -43,6 +43,30 @@ module.exports.trigger = function (traceId, name, action, tenantKey, projectId, 
   }
 }
 
+module.exports.triggerBulk = function (traceId, name, tenantKey, projectId, actions) {
+  if (tenantKey === null || tenantKey === undefined) {
+    console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} project is undefined or null!`)
+  } else if (!(name in WEBHOOKS)) {
+    console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} does not exist!`)
+  } else {
+    const found = WEBHOOKS[name]
+    found.map(route => {
+      http.post({
+        url: `${route}/bulk?tenantKey=${encodeURIComponent(tenantKey)}&projectId=${projectId}`,
+        json: {
+          name: name,
+          actions: actions
+        },
+        headers: {
+          'x-behave-trace-id': traceId
+        }
+      }).catch(err => {
+        console.error(`ERROR Trace-ID: ${traceId} webhook: ${name} Message: ${err.message}`)
+      })
+    })
+  }
+}
+
 module.exports.featureEvent = function (traceId, action, tenantKey, projectId, data) {
   module.exports.trigger(traceId, 'feature', action, tenantKey, projectId, data)
 }

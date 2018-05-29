@@ -7,6 +7,7 @@ var serviceNameCacheUrl = `http://localhost:3005`
 var serviceStepCacheUrl = `http://localhost:3006`
 var serviceJiraInternalGatewayUrl = `http://localhost:3007`
 var serviceIssueManagerUrl = `http://localhost:3008`
+var serviceSyncManagerUrl = `http://localhost:3009`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -20,6 +21,7 @@ if (process.env.INTERNAL_NAME_CACHE_URL) serviceNameCacheUrl = process.env.INTER
 if (process.env.INTERNAL_STEP_CACHE_URL) serviceStepCacheUrl = process.env.INTERNAL_STEP_CACHE_URL
 if (process.env.INTERNAL_JIRA_GATEWAY_URL) serviceJiraInternalGatewayUrl = process.env.INTERNAL_JIRA_GATEWAY_URL
 if (process.env.INTERNAL_ISSUE_MANAGER_URL) serviceIssueManagerUrl = process.env.INTERNAL_ISSUE_MANAGER_URL
+if (process.env.INTERNAL_SYNC_MANAGER_URL) serviceSyncManagerUrl = process.env.INTERNAL_SYNC_MANAGER_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'github.behave.pro'
@@ -31,6 +33,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceStepCacheUrl = 'step-cache.behave.internal'
   serviceJiraInternalGatewayUrl = 'jira-gateway.behave.internal'
   serviceIssueManagerUrl = 'issue-manager.behave.internal'
+  serviceSyncManagerUrl = 'sync-manager.behave.internal'
 }
 
 module.exports = {
@@ -41,9 +44,12 @@ module.exports = {
   INTERNAL_GITHUB_REPOSITORIES: `${serviceGitHubUrl}/REST/1.0/repositories`,
   INTERNAL_GITHUB_VALIDATE_PATH: `${serviceGitHubUrl}/REST/1.0/installation/validate`,
   INTERNAL_GITHUB_UPDATE_TENANT: `${serviceGitHubUrl}/REST/1.0/tenant`,
+  INTERNAL_GITHUB_GET_TENANT: `${serviceGitHubUrl}/REST/1.0/tenant`,
+  INTERNAL_GITHUB_PAYLOAD: `${serviceGitHubUrl}/REST/1.0/payload`,
   INTERNAL_PROJECT_SETTINGS_HEALTHCHECK: `${serviceProjectSettingsUrl}/REST/1.0/healthcheck`,
   INTERNAL_PROJECT_SETTINGS: `${serviceProjectSettingsUrl}/REST/1.0/project/settings`,
   INTERNAL_PROJECT_SETTINGS_DELETE_BY_INSTALLATION: `${serviceProjectSettingsUrl}/REST/1.0/project/settings/installation`,
+  INTERNAL_PROJECT_SETTINGS_FIND_BY_INSTALLATION: `${serviceProjectSettingsUrl}/REST/1.0/project/settings/installation`,
   INTERNAL_FEATURES_HEALTHCHECK: `${serviceFeaturesUrl}/REST/1.0/healthcheck`,
   INTERNAL_FEATURES_FEATURE: `${serviceFeaturesUrl}/REST/1.0/feature`,
   INTERNAL_FEATURES_FEATURE_ALL: `${serviceFeaturesUrl}/REST/1.0/feature/all`,
@@ -54,6 +60,7 @@ module.exports = {
   INTERNAL_FEATURES_SCENARIO_ALL: `${serviceFeaturesUrl}/REST/1.0/scenario/all`,
   INTERNAL_FEATURES_SCENARIO_DUPLICATE: `${serviceFeaturesUrl}/REST/1.0/scenario/duplicate`,
   INTERNAL_FEATURES_SCENARIO_MOVE: `${serviceFeaturesUrl}/REST/1.0/scenario/move`,
+  INTERNAL_FEATURES_BULK: `${serviceFeaturesUrl}/REST/1.0/bulk/features`,
   INTERNAL_FEATURES_WEBHOOK: `${serviceFeaturesUrl}/REST/1.0/webhook`,
   INTERNAL_TAG_CACHE_HEALTHCHECK: `${serviceTagCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}/REST/1.0/tags`,
@@ -71,9 +78,13 @@ module.exports = {
   INTERNAL_JIRA_GATEWAY_HEALTHCHECK: `${serviceJiraInternalGatewayUrl}/REST/1.0/healthcheck`,
   INTERNAL_JIRA_GATEWAY_HOST: `${serviceJiraInternalGatewayUrl}/REST/1.0/host`,
   INTERNAL_JIRA_GATEWAY_ISSUE: `${serviceJiraInternalGatewayUrl}/REST/1.0/issue`,
+  INTERNAL_JIRA_GATEWAY_PROJECT: `${serviceJiraInternalGatewayUrl}/REST/1.0/project`,
   INTERNAL_ISSUE_MANAGER_HEALTHCHECK: `${serviceIssueManagerUrl}/REST/1.0/healthcheck`,
   INTERNAL_ISSUE_MANAGER_ISSUE: `${serviceIssueManagerUrl}/REST/1.0/issue`,
+  INTERNAL_ISSUE_MANAGER_ISSUE_SYNC: `${serviceIssueManagerUrl}/REST/1.0/issue/sync`,
   INTERNAL_ISSUE_MANAGER_SCENARIO: `${serviceIssueManagerUrl}/REST/1.0/issue/scenario`,
   INTERNAL_ISSUE_MANAGER_SCENARIO_ALL: `${serviceIssueManagerUrl}/REST/1.0/issue/scenario/all`,
-  INTERNAL_ISSUE_MANAGER_WEBHOOK: `${serviceIssueManagerUrl}/REST/1.0/webhook`
+  INTERNAL_ISSUE_MANAGER_WEBHOOK: `${serviceIssueManagerUrl}/REST/1.0/webhook`,
+  INTERNAL_SYNC_MANAGER_BULK_FEATURES: `${serviceSyncManagerUrl}/REST/1.0/bulk/features`,
+  INTERNAL_SYNC_MANAGER_HEALTHCHECK: `${serviceSyncManagerUrl}/REST/1.0/healthcheck`
 }
