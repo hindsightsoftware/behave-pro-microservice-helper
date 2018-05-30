@@ -39,6 +39,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
 module.exports = {
   EXTERNAL_GITHUB_HEALTHCHECK: `${serviceExternalGitHubUrl}/REST/1.0/healthcheck`,
   EXTERNAL_GITHUB_WEBHOOK: `${serviceExternalGitHubUrl}/REST/1.0/hook`,
+  EXTERNAL_GITHUB_PAYLOAD: `${serviceExternalGitHubUrl}/REST/1.0/payload`,
   INTERNAL_GITHUB_HEALTHCHECK: `${serviceGitHubUrl}/REST/1.0/healthcheck`,
   INTERNAL_GITHUB_CONTENTS: `${serviceGitHubUrl}/REST/1.0/contents`,
   INTERNAL_GITHUB_REPOSITORIES: `${serviceGitHubUrl}/REST/1.0/repositories`,
