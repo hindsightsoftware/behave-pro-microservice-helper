@@ -24,7 +24,7 @@ module.exports = class PromiseRouter {
 
   wrapper (method, path, func) {
     this.router[method](path, (req, res, next) => {
-      func(req.traceId, req.query, req.body, req.param).then(result => {
+      func(req.traceId, req).then(result => {
         if (result instanceof RawTextFile) {
           res.setHeader('Content-Disposition', 'attachment; ' + result.fileName)
           res.setHeader('Content-type', 'text/plain')
