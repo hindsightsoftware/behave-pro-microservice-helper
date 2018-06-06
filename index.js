@@ -14,6 +14,7 @@ var defaultErrorHandler = require('./helpers/default-error-handler')
 var RawTextFile = require('./helpers/raw-text-file')
 var defaultResponseHandler = require('./helpers/default-response-handler')
 var traceIdHandler = require('./helpers/traceid-handler')
+var requestWrapper = require('./helpers/request-wrapper')
 
 module.exports.http = http
 module.exports.validators = validators
@@ -31,3 +32,4 @@ module.exports.defaultErrorHandler = defaultErrorHandler
 module.exports.RawTextFile = RawTextFile
 module.exports.defaultResponseHandler = defaultResponseHandler
 module.exports.traceIdHandler = traceIdHandler
+module.exports.requestWrapper = requestWrapper
