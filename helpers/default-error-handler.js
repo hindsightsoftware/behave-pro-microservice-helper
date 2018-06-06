@@ -5,8 +5,7 @@ module.exports = function (err, req, res, next) {
   try {
     Logger.error(
       err.message + ':', err.details || '',
-      '\n   URL:', req.method, req.route.path,
-      '\n   Query:', req._parsedUrl.query,
+      '\n   URL:', req.method, req.url,
       '\n   Host:', req.headers.host,
       '\n   Trace ID:', req.traceId,
       '\n   ', err.stack
