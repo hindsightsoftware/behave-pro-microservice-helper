@@ -1,10 +1,16 @@
 const RequestError = require('./request-error')
-const Logger = require('./logger')
+const LoggerV2 = require('./logger-v2')
 
 module.exports = function (err, req, res, next) {
   try {
-    Logger.error(
+    var tenantKey = req.query.tenantKey || 'undefined'
+    const traceId = req.traceId || 'undefined'
+    if (req.swagger && req.swagger.params.tenantKey) tenantKey = req.swagger.params.tenantKey.value || 'undefined'
+
+    LoggerV2.error(
+      tenantKey, traceId,
       err.message + ' ', err.details || '', err.code || '', err.results ? JSON.stringify(err.results) : '',
+      '\n   Tenant:', tenantKey,
       '\n   URL:', req.method, req.url,
       '\n   Host:', req.headers.host,
       '\n   Trace ID:', req.traceId,
