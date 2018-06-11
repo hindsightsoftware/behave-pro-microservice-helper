@@ -27,7 +27,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'https://github.behave.pro'
   serviceGitHubUrl = 'https://github.behave.internal'
   serviceProjectSettingsUrl = 'https://project-settings.behave.internal'
-  serviceFeaturesUrl = 'https://features-manager.behave.internal'
+  serviceFeaturesUrl = 'https://feature-manager.behave.internal'
   serviceTagCacheUrl = 'https://tag-cache.behave.internal'
   serviceNameCacheUrl = 'https://name-cache.behave.internal'
   serviceStepCacheUrl = 'https://step-cache.behave.internal'
