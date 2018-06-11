@@ -24,16 +24,16 @@ if (process.env.INTERNAL_ISSUE_MANAGER_URL) serviceIssueManagerUrl = process.env
 if (process.env.INTERNAL_SYNC_MANAGER_URL) serviceSyncManagerUrl = process.env.INTERNAL_SYNC_MANAGER_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
-  serviceExternalGitHubUrl = 'github.behave.pro'
-  serviceGitHubUrl = 'github.behave.internal'
-  serviceProjectSettingsUrl = 'project-settings.behave.internal'
-  serviceFeaturesUrl = 'features-manager.behave.internal'
-  serviceTagCacheUrl = 'tag-cache.behave.internal'
-  serviceNameCacheUrl = 'name-cache.behave.internal'
-  serviceStepCacheUrl = 'step-cache.behave.internal'
-  serviceJiraInternalGatewayUrl = 'jira-gateway.behave.internal'
-  serviceIssueManagerUrl = 'issue-manager.behave.internal'
-  serviceSyncManagerUrl = 'sync-manager.behave.internal'
+  serviceExternalGitHubUrl = 'https://github.behave.pro'
+  serviceGitHubUrl = 'https://github.behave.internal'
+  serviceProjectSettingsUrl = 'https://project-settings.behave.internal'
+  serviceFeaturesUrl = 'https://features-manager.behave.internal'
+  serviceTagCacheUrl = 'https://tag-cache.behave.internal'
+  serviceNameCacheUrl = 'https://name-cache.behave.internal'
+  serviceStepCacheUrl = 'https://step-cache.behave.internal'
+  serviceJiraInternalGatewayUrl = 'https://jira-gateway.behave.internal'
+  serviceIssueManagerUrl = 'https://issue-manager.behave.internal'
+  serviceSyncManagerUrl = 'https://sync-manager.behave.internal'
 }
 
 module.exports = {
