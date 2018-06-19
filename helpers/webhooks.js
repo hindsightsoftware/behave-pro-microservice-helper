@@ -15,6 +15,12 @@ const WEBHOOKS = {
   ],
   'issue': [
     routes.INTERNAL_FEATURES_WEBHOOK
+  ],
+  'settings': [
+    routes.INTERNAL_FEATURES_WEBHOOK,
+    routes.INTERNAL_TAG_CACHE_WEBHOOK,
+    routes.INTERNAL_NAME_CACHE_WEBHOOK,
+    routes.INTERNAL_STEP_CACHE_WEBHOOK
   ]
 }
 
@@ -77,4 +83,8 @@ module.exports.scenarioEvent = function (traceId, action, tenantKey, projectId, 
 
 module.exports.issueEvent = function (traceId, action, tenantKey, projectId, data) {
   module.exports.trigger(traceId, 'issue', action, tenantKey, projectId, data)
+}
+
+module.exports.settingsEvent = function (traceId, action, tenantKey, projectId, data) {
+  module.exports.trigger(traceId, 'settings', action, tenantKey, projectId, data)
 }
