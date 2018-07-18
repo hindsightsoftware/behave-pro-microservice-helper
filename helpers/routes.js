@@ -8,6 +8,7 @@ var serviceStepCacheUrl = `http://localhost:3006`
 var serviceJiraInternalGatewayUrl = `http://localhost:3007`
 var serviceIssueManagerUrl = `http://localhost:3008`
 var serviceSyncManagerUrl = `http://localhost:3009`
+var serviceAnalyticsUrl = `http://localhost:3010`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -22,6 +23,7 @@ if (process.env.INTERNAL_STEP_CACHE_URL) serviceStepCacheUrl = process.env.INTER
 if (process.env.INTERNAL_JIRA_GATEWAY_URL) serviceJiraInternalGatewayUrl = process.env.INTERNAL_JIRA_GATEWAY_URL
 if (process.env.INTERNAL_ISSUE_MANAGER_URL) serviceIssueManagerUrl = process.env.INTERNAL_ISSUE_MANAGER_URL
 if (process.env.INTERNAL_SYNC_MANAGER_URL) serviceSyncManagerUrl = process.env.INTERNAL_SYNC_MANAGER_URL
+if (process.env.INTERNAL_ANALYTICS_URL) serviceAnalyticsUrl = process.env.INTERNAL_ANALYTICS_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'https://github.behave.pro'
@@ -34,6 +36,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceJiraInternalGatewayUrl = 'https://jira-gateway.behave.internal'
   serviceIssueManagerUrl = 'https://issue-manager.behave.internal'
   serviceSyncManagerUrl = 'https://sync-manager.behave.internal'
+  serviceAnalyticsUrl = 'https://analytics.behave.internal'
 }
 
 module.exports = {
@@ -97,5 +100,6 @@ module.exports = {
   INTERNAL_ISSUE_MANAGER_WEBHOOK: `${serviceIssueManagerUrl}/REST/1.0/webhook`,
   INTERNAL_SYNC_MANAGER: `${serviceSyncManagerUrl}`,
   INTERNAL_SYNC_MANAGER_BULK_FEATURES: `${serviceSyncManagerUrl}/REST/1.0/bulk/features`,
-  INTERNAL_SYNC_MANAGER_HEALTHCHECK: `${serviceSyncManagerUrl}/REST/1.0/healthcheck`
+  INTERNAL_SYNC_MANAGER_HEALTHCHECK: `${serviceSyncManagerUrl}/REST/1.0/healthcheck`,
+  INTERNAL_ANALYTICS_HEALTHCHECK: `${serviceAnalyticsUrl}/REST/1.0/healthcheck`
 }
