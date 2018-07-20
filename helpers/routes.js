@@ -104,6 +104,8 @@ module.exports = {
   INTERNAL_SYNC_MANAGER: `${serviceSyncManagerUrl}`,
   INTERNAL_SYNC_MANAGER_BULK_FEATURES: `${serviceSyncManagerUrl}/REST/1.0/bulk/features`,
   INTERNAL_SYNC_MANAGER_HEALTHCHECK: `${serviceSyncManagerUrl}/REST/1.0/healthcheck`,
+  INTERNAL_ANALYTICS: `${serviceAnalyticsUrl}`,
   INTERNAL_ANALYTICS_HEALTHCHECK: `${serviceAnalyticsUrl}/REST/1.0/healthcheck`,
   INTERNAL_IMPORT_MANAGER: `${serviceImportManagerUrl}/REST/1.0`
+
 }
