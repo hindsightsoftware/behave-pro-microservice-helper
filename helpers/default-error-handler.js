@@ -1,5 +1,6 @@
 const RequestError = require('./request-error')
 const LoggerV2 = require('./logger-v2')
+const { isEmpty } = require('./utils')
 
 module.exports = function (err, req, res, next) {
   try {
@@ -28,7 +29,8 @@ module.exports = function (err, req, res, next) {
       res.status(err.statusCode || 500)
       res.send({
         message: (err instanceof RequestError ? err.message : 'Internal Server Error'),
-        traceId: req.traceId
+        traceId: req.traceId,
+        params: (err.params && !isEmpty(err.params) ? err.params : undefined)
       })
     }
   } catch (e) {
