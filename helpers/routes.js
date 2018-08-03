@@ -11,6 +11,7 @@ var serviceSyncManagerUrl = `http://localhost:3009`
 var serviceAnalyticsUrl = `http://localhost:3010`
 var serviceImportManagerUrl = `http://localhost:3011`
 var serviceJobManagerUrl = `http://localhost:3012`
+var serviceMailerManagerUrl = `http://localhost:3013`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -28,6 +29,8 @@ if (process.env.INTERNAL_SYNC_MANAGER_URL) serviceSyncManagerUrl = process.env.I
 if (process.env.INTERNAL_ANALYTICS_URL) serviceAnalyticsUrl = process.env.INTERNAL_ANALYTICS_URL
 if (process.env.INTERNAL_IMPORT_MANAGER_URL) serviceImportManagerUrl = process.env.INTERNAL_IMPORT_MANAGER_URL
 if (process.env.INTERNAL_JOB_MANAGER_URL) serviceJobManagerUrl = process.env.INTERNAL_JOB_MANAGER_URL
+if (process.env.INTERNAL_MAILER_MANAGER_URL) serviceMailerManagerUrl = process.env.INTERNAL_MAILER_MANAGER_URL
+
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'https://github.behave.pro'
@@ -43,6 +46,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceAnalyticsUrl = 'https://analytics.behave.internal'
   serviceImportManagerUrl = 'https://import-manager.behave.internal'
   serviceJobManagerUrl = 'https://job-manager.behave.internal'
+  serviceMailerManagerUrl = 'https://mailer-manager.behave.internal'
 }
 
 module.exports = {
@@ -111,4 +115,5 @@ module.exports = {
   INTERNAL_ANALYTICS_HEALTHCHECK: `${serviceAnalyticsUrl}/REST/1.0/healthcheck`,
   INTERNAL_IMPORT_MANAGER: `${serviceImportManagerUrl}/REST/1.0/`,
   INTERNAL_JOB_MANAGER_URL: `${serviceJobManagerUrl}/REST/1.0`
+  INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`
 }
