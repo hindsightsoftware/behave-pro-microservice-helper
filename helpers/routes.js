@@ -114,6 +114,6 @@ module.exports = {
   INTERNAL_ANALYTICS: `${serviceAnalyticsUrl}`,
   INTERNAL_ANALYTICS_HEALTHCHECK: `${serviceAnalyticsUrl}/REST/1.0/healthcheck`,
   INTERNAL_IMPORT_MANAGER: `${serviceImportManagerUrl}/REST/1.0/`,
-  INTERNAL_JOB_MANAGER_URL: `${serviceJobManagerUrl}/REST/1.0`
+  INTERNAL_JOB_MANAGER_URL: `${serviceJobManagerUrl}/REST/1.0`,
   INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`
 }
