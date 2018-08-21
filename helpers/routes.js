@@ -12,6 +12,8 @@ var serviceAnalyticsUrl = `http://localhost:3010`
 var serviceImportManagerUrl = `http://localhost:3011`
 var serviceJobManagerUrl = `http://localhost:3012`
 var serviceMailerManagerUrl = `http://localhost:3013`
+var serviceBitbucketExternalUrl = `http://localhost:3014`
+var serviceBitbucketInternalUrl = `http://localhost:3015`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -30,7 +32,8 @@ if (process.env.INTERNAL_ANALYTICS_URL) serviceAnalyticsUrl = process.env.INTERN
 if (process.env.INTERNAL_IMPORT_MANAGER_URL) serviceImportManagerUrl = process.env.INTERNAL_IMPORT_MANAGER_URL
 if (process.env.INTERNAL_JOB_MANAGER_URL) serviceJobManagerUrl = process.env.INTERNAL_JOB_MANAGER_URL
 if (process.env.INTERNAL_MAILER_MANAGER_URL) serviceMailerManagerUrl = process.env.INTERNAL_MAILER_MANAGER_URL
-
+if (process.env.EXTERNAL_BITBUCKET_URL) serviceBitbucketExternalUrl = process.env.EXTERNAL_BITBUCKET_URL
+if (process.env.INTERNAL_BITBUCKET_URL) serviceBitbucketInternalUrl = process.env.INTERNAL_BITBUCKET_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceExternalGitHubUrl = 'https://github.behave.pro'
@@ -47,6 +50,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceImportManagerUrl = 'https://import-manager.behave.internal'
   serviceJobManagerUrl = 'https://job-manager.behave.internal'
   serviceMailerManagerUrl = 'https://mailer-manager.behave.internal'
+  serviceExternalBitbucketUrl = 'https://bitbucket.behave.pro'
+  serviceInternalBitbucketUrl = 'https://bitbucket.behave.internal'
 }
 
 module.exports = {
@@ -115,5 +120,8 @@ module.exports = {
   INTERNAL_ANALYTICS_HEALTHCHECK: `${serviceAnalyticsUrl}/REST/1.0/healthcheck`,
   INTERNAL_IMPORT_MANAGER: `${serviceImportManagerUrl}/REST/1.0/`,
   INTERNAL_JOB_MANAGER_URL: `${serviceJobManagerUrl}/REST/1.0`,
-  INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`
+  INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`,
+  EXTERNAL_BITBUCKET_URL: `${serviceBitbucketExternalUrl}`,
+  INTERNAL_BITBUCKET_URL: `${serviceBitbucketInternalUrl}`
+
 }
