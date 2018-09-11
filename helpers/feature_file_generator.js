@@ -8,7 +8,7 @@ const createFeatures = (number, dir) => {
     fs.mkdirSync(dir + '/features_files')
   }
   for (let i = 0; i <= number; i++) {
-    const fileName = `feature_file_${i}`
+    const fileName = `feature_file_${i}.feature`
     let fileString = ''
     for (let i = 0; i <= getRandomInt(8, 20); i++) {
       const featureTitleString = `Feature: ${generateRandomString()}`
@@ -71,4 +71,8 @@ const generateTags = () => {
     tagString += `@${generateRandomString()} `
   }
   return tagString
+}
+
+exports.generate = (number, dir) => {
+  createFeatures(number, dir)
 }
