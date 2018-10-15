@@ -85,7 +85,7 @@ module.exports = {
   INTERNAL_FEATURES_SCENARIO_MOVE: `${serviceFeaturesUrl}/REST/1.0/scenario/move`,
   INTERNAL_FEATURES_BULK: `${serviceFeaturesUrl}/REST/1.0/bulk/features`,
   INTERNAL_FEATURES_WEBHOOK: `${serviceFeaturesUrl}/REST/1.0/webhook`,
-  INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}`,
+  INTERNAL_TAG_CACHE_BASE: `${serviceTagCacheUrl}`,
   INTERNAL_TAG_CACHE_HEALTHCHECK: `${serviceTagCacheUrl}/REST/1.0/healthcheck`,
   INTERNAL_TAG_CACHE: `${serviceTagCacheUrl}/REST/1.0/tags`,
   INTERNAL_TAG_CACHE_ALL: `${serviceTagCacheUrl}/REST/1.0/tags/all`,
