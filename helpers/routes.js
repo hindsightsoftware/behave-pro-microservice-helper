@@ -52,8 +52,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceImportManagerUrl = 'https://import-manager.behave.internal'
   serviceJobManagerUrl = 'https://job-manager.behave.internal'
   serviceMailerManagerUrl = 'https://mailer-manager.behave.internal'
-  serviceExternalBitbucketUrl = 'https://bitbucket.behave.pro'
-  serviceInternalBitbucketUrl = 'https://bitbucket.behave.internal'
+  serviceBitbucketExternalUrl = 'https://bitbucket.behave.pro'
+  serviceBitbucketInternalUrl = 'https://bitbucket.behave.internal'
   serviceJavaAppUrl = 'https://behavepro.hindsightsoftware.com'
 }
 
