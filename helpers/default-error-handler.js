@@ -1,3 +1,4 @@
+const { log } = require('@hindsightsoftware/winston-express')
 const RequestError = require('./request-error')
 const LoggerV2 = require('./logger-v2')
 const { isEmpty } = require('./utils')
@@ -17,6 +18,9 @@ module.exports = function (err, req, res, next) {
       '\n   Trace ID:', req.traceId,
       '\n   ', err.stack
     )
+
+    const logLevel = res.stack >= 500 ? 'error' : 'warn';
+    log.log(logLevel, 'default-error-handler', { err, tenantKey, traceId })
 
     // render the error page
     if (err.message.indexOf('Invalid content type') >= 0 || err.code !== undefined) {
