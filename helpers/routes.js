@@ -14,6 +14,9 @@ var serviceJobManagerUrl = `http://localhost:3012`
 var serviceMailerManagerUrl = `http://localhost:3013`
 var serviceBitbucketExternalUrl = `http://localhost:3014`
 var serviceBitbucketInternalUrl = `http://localhost:3015`
+var serviceEventStoreUrl = `http://localhost:3016`
+var serviceFeatureTransformerUrl = `http://localhost:3017`
+var serviceFeatureCacheUrl = `http://localhost:3018`
 var serviceJavaAppUrl = `http://localhost:9000`
 
 // Helper enrivonment variables to overwrite service URLS.
@@ -35,6 +38,9 @@ if (process.env.INTERNAL_JOB_MANAGER_URL) serviceJobManagerUrl = process.env.INT
 if (process.env.INTERNAL_MAILER_MANAGER_URL) serviceMailerManagerUrl = process.env.INTERNAL_MAILER_MANAGER_URL
 if (process.env.EXTERNAL_BITBUCKET_URL) serviceBitbucketExternalUrl = process.env.EXTERNAL_BITBUCKET_URL
 if (process.env.INTERNAL_BITBUCKET_URL) serviceBitbucketInternalUrl = process.env.INTERNAL_BITBUCKET_URL
+if (process.env.INTERNAL_EVENT_STORE_URL) serviceEventStoreUrl = process.env.INTERNAL_EVENT_STORE_URL
+if (process.env.INTERNAL_FEATURE_TRANSFORMER_URL) serviceFeatureTransformerUrl = process.env.INTERNAL_FEATURE_TRANSFORMER_URL
+if (process.env.INTERNAL_FEATURE_CACHE_URL) serviceFeatureCacheUrl = process.env.INTERNAL_FEATURE_CACHE_URL
 if (process.env.JAVA_APP_URL) serviceJavaAppUrl = process.env.JAVA_APP_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
@@ -54,6 +60,9 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceMailerManagerUrl = 'https://mailer-manager.behave.internal'
   serviceBitbucketExternalUrl = 'https://bitbucket.behave.pro'
   serviceBitbucketInternalUrl = 'https://bitbucket.behave.internal'
+  serviceEventStoreUrl = 'https://event-store.behave.internal'
+  serviceFeatureTransformerUrl = 'https://feature-transformer.behave.internal'
+  serviceFeatureCacheUrl = 'https://feature-cache.behave.internal'
   serviceJavaAppUrl = 'https://behavepro.hindsightsoftware.com'
 }
 
@@ -126,6 +135,9 @@ module.exports = {
   INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`,
   EXTERNAL_BITBUCKET_URL: `${serviceBitbucketExternalUrl}`,
   INTERNAL_BITBUCKET_URL: `${serviceBitbucketInternalUrl}`,
+  INTERNAL_EVENT_STORE_URL: `${serviceEventStoreUrl}`,
+  INTERNAL_FEATURE_TRANSFORMER_URL: `${serviceFeatureTransformerUrl}`,
+  INTERNAL_FEATURE_CACHE_URL: `${serviceFeatureCacheUrl}`,
   JAVA_APP_URL: `${serviceJavaAppUrl}`
 
 }
