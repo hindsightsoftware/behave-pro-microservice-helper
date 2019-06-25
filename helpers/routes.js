@@ -17,6 +17,7 @@ var serviceBitbucketInternalUrl = `http://localhost:3015`
 var serviceEventStoreUrl = `http://localhost:3016`
 var serviceFeatureTransformerUrl = `http://localhost:3017`
 var serviceFeatureCacheUrl = `http://localhost:3018`
+var serviceCommitReceiver = `http://localhost:3020`
 var serviceJavaAppUrl = `http://localhost:9000`
 
 // Helper enrivonment variables to overwrite service URLS.
@@ -41,6 +42,7 @@ if (process.env.INTERNAL_BITBUCKET_URL) serviceBitbucketInternalUrl = process.en
 if (process.env.INTERNAL_EVENT_STORE_URL) serviceEventStoreUrl = process.env.INTERNAL_EVENT_STORE_URL
 if (process.env.INTERNAL_FEATURE_TRANSFORMER_URL) serviceFeatureTransformerUrl = process.env.INTERNAL_FEATURE_TRANSFORMER_URL
 if (process.env.INTERNAL_FEATURE_CACHE_URL) serviceFeatureCacheUrl = process.env.INTERNAL_FEATURE_CACHE_URL
+if (process.env.INTERNAL_COMMIT_RECEIVER) serviceCommitReceiver = process.env.INTERNAL_COMMIT_RECEIVER
 if (process.env.JAVA_APP_URL) serviceJavaAppUrl = process.env.JAVA_APP_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
@@ -64,6 +66,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceFeatureTransformerUrl = 'https://feature-transformer.behave.internal'
   serviceFeatureCacheUrl = 'https://feature-cache.behave.internal'
   serviceJavaAppUrl = 'https://behavepro.hindsightsoftware.com'
+  serviceCommitReceiver = 'https://commit-receiver.behave.internal'
 }
 
 module.exports = {
@@ -138,6 +141,7 @@ module.exports = {
   INTERNAL_EVENT_STORE_URL: `${serviceEventStoreUrl}`,
   INTERNAL_FEATURE_TRANSFORMER_URL: `${serviceFeatureTransformerUrl}`,
   INTERNAL_FEATURE_CACHE_URL: `${serviceFeatureCacheUrl}`,
+  INTERNAL_COMMIT_RECEIVER: `${serviceCommitReceiver}`,
   JAVA_APP_URL: `${serviceJavaAppUrl}`
 
 }
