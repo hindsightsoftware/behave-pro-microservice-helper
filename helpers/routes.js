@@ -20,6 +20,8 @@ var serviceFeatureCacheUrl = `http://localhost:3018`
 var serviceCommitReceiver = `http://localhost:3020`
 var serviceIssueHandler = `http://localhost:3022`
 var serviceJavaAppUrl = `http://localhost:9000`
+var serviceGitLabInternalGatewayUrl =  `http://localhost:3028`
+var serviceGitLabExternalGatewayUrl = `http://localhost:3029`
 
 // Helper enrivonment variables to overwrite service URLS.
 // For example when doing integration tests on CircleCI because
@@ -45,6 +47,8 @@ if (process.env.INTERNAL_FEATURE_TRANSFORMER_URL) serviceFeatureTransformerUrl =
 if (process.env.INTERNAL_FEATURE_CACHE_URL) serviceFeatureCacheUrl = process.env.INTERNAL_FEATURE_CACHE_URL
 if (process.env.INTERNAL_COMMIT_RECEIVER) serviceCommitReceiver = process.env.INTERNAL_COMMIT_RECEIVER
 if (process.env.INTERNAL_ISSUE_HANDLER) serviceIssueHandler = process.env.INTERNAL_ISSUE_HANDLER
+if (process.env.INTERNAL_GITLAB_URL) serviceGitLabInternalGatewayUrl = process.env.INTERNAL_GITLAB_URL
+if (process.env.EXTERNAL_GITLAB_URL) serviceGitLabExternalGatewayUrl = process.env.EXTERNAL_GITLAB_URL
 if (process.env.JAVA_APP_URL) serviceJavaAppUrl = process.env.JAVA_APP_URL
 
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
@@ -70,6 +74,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   serviceJavaAppUrl = 'https://behavepro.hindsightsoftware.com'
   serviceCommitReceiver = 'https://commit-receiver.behave.internal'
   serviceIssueHandler = 'https://issue-handler.behave.internal'
+  serviceGitLabInternalGatewayUrl = `https://gitlab-internal.behave.internal`
+  serviceGitLabExternalGatewayUrl = `https://gitlab.behave.pro`
 }
 
 module.exports = {
@@ -147,6 +153,7 @@ module.exports = {
   INTERNAL_FEATURE_CACHE_URL: `${serviceFeatureCacheUrl}`,
   INTERNAL_COMMIT_RECEIVER: `${serviceCommitReceiver}`,
   INTERNAL_ISSUE_HANDLER: `${serviceIssueHandler}`,
-  JAVA_APP_URL: `${serviceJavaAppUrl}`
-
+  JAVA_APP_URL: `${serviceJavaAppUrl}`,
+  INTERNAL_GITLAB_URL: `${serviceGitLabInternalGatewayUrl}`,
+  EXTERNAL_GITLAB_URL: `${serviceGitLabExternalGatewayUrl}`
 }
