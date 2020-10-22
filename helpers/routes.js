@@ -139,6 +139,7 @@ module.exports = {
   INTERNAL_IMPORT_MANAGER: `${serviceImportManagerUrl}/REST/1.0`,
   INTERNAL_IMPORT_MANAGER_URL: `${serviceImportManagerUrl}`,
   INTERNAL_JOB_MANAGER_URL: `${serviceJobManagerUrl}/REST/1.0`,
+  INTERNAL_JOB_MANAGER_URL_V2: `${serviceJobManagerUrl}/REST/2.0`,
   INTERNAL_MAILER_MANAGER: `${serviceMailerManagerUrl}/REST/1.0`,
   EXTERNAL_BITBUCKET_URL: `${serviceBitbucketExternalUrl}`,
   INTERNAL_BITBUCKET_URL: `${serviceBitbucketInternalUrl}`,
